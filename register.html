@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h5{
+            color: red;
+        }
+        form {
+    width: 300px;
+    margin: 0 auto;
+}
+    body
+    {
+        background-color: #8f00ff;
+    }
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+input[name="repeatpassword"].no-match {
+    border: 1px solid red;
+}
+
+    </style>
+</head>
+    <h1>Sign up For vortex 360</h1>
+    {% for message in messages %}
+    <h5>{{ message }}</h5>
+    {% endfor %}
+    <form method="POST" action="register">
+        {% csrf_token %}
+        <label for="username">UserName </label>
+        <input type="text" name="username">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email">
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <br>
+        <label for="repeatpassword">Repeatpassword</label>
+        <input type="password" name="repeatpassword" class=".nomatch">
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
